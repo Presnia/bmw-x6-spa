@@ -4,13 +4,13 @@ const disableScroll = () => {
   const scrollWidth = window.innerWidth - document.body.offsetWidth;
 
   document.body.style.cssText = `
-  overflow:hidden;
+  position:fixed;
   top:-${window.scrollY}px;
   left:0;
-  position:fixed;
   width:100%;
   height:100vh;
-  padding-right: ${scrollWidth}px;`
+  padding-right: ${scrollWidth}px;
+  overflow:hidden;`
 };
 
 const enableScroll = () => {
