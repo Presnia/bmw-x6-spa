@@ -1,4 +1,4 @@
-const moreElem = document.querySelector('.more');
+const moreElem = document.querySelectorAll('.more');
 const modalElem = document.querySelector('.modal');
 
 const openModal = () => {
@@ -8,7 +8,8 @@ const closeModal = () => {
   modalElem.classList.add('hidden');
 };
 
-moreElem.addEventListener('click', openModal);
+moreElem.forEach(elem => elem.addEventListener('click', openModal));
+
 modalElem.addEventListener('click', e => {
   console.log(e.target)
   const target = e.target;
