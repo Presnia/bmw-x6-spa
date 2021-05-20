@@ -11,7 +11,6 @@ const closeModal = () => {
 moreElem.forEach(elem => elem.addEventListener('click', openModal));
 
 modalElem.addEventListener('click', e => {
-  console.log(e.target)
   const target = e.target;
 
   if (target.classList.contains('overlay') || 
