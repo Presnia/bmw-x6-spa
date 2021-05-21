@@ -35,16 +35,20 @@ const formHandler = (form) => {
     const formBtn = document.querySelector('.form__button');
     const modalBtn = document.querySelector('.modal__button');
     
-    sendData(JSON.stringify(data), 
-    (id) => {
-      smallElem.innerHTML = `Ваша заявка №${id}. <br>В ближайшее время мы с Вами свяжемся.`;
-      smallElem.style.color = 'green';
-      form.append(smallElem);
-    }, () => {
-      smallElem.textContent = 'К сожалению, этот сервер сейчас недоступен.\nПопробуйте отправить заявку позже. ';
-      smallElem.style.color = 'red';
-      form.append(smallElem);
-    });
+    if (data.value !== '') {
+      sendData(JSON.stringify(data), 
+      (id) => {
+        smallElem.innerHTML = `Ваша заявка №${id}. <br>В ближайшее время мы с Вами свяжемся.`;
+        smallElem.style.color = 'green';
+        form.append(smallElem);
+      }, () => {
+        smallElem.textContent = 'К сожалению, этот сервер сейчас недоступен.\nПопробуйте отправить заявку позже. ';
+        smallElem.style.color = 'red';
+        form.append(smallElem);
+      });
+    } else {
+      return 
+    }
 
     formBtn.disabled = true;
     modalBtn.disabled = true;
